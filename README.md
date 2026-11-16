@@ -14,3 +14,12 @@ Shared files for every repository owned by [oney-erge](https://github.com/oney-e
   re-check one pull request: `gh workflow run dependabot-automerge.yml -R oney-erge/<repo> -f pr=<number>`.
 
 A change here applies to every repository at once.
+
+## Repository baseline
+
+`.github/workflows/repository-baseline.yml` is a reusable, opt-in contract
+validation workflow. Callers must pass a reviewed full commit SHA of the
+`oney-erge/engineering-kit` repository. It validates declarations and uploads
+the result; it does not run repository-declared checks or prove product behavior.
+The kit repository and a reviewed revision must be available before adding a
+caller. Existing repositories do not invoke this workflow automatically.

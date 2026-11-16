@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "repository": {"id": "oney-erge/.github", "owner": "oney-erge", "maintenance": "unclassified", "interfaces": ["shared-tooling", "static-content"]},
+  "capabilities": ["shared-tooling"],
+  "components": [{"id": "community-and-workflows", "root": ".github"}],
+  "environment": {"source": "README.md", "checkout": "sparse"},
+  "checks": {"worktree-whitespace": {"argv": ["git", "diff", "--check"], "cwd": ".", "timeout_seconds": 30, "effects": "read-only"}},
+  "journeys": [{"id": "shared-workflow", "user_outcome": "Use consistent community files and reusable workflows in a caller repository", "checks": ["worktree-whitespace"], "additional_evidence_needed": ["actionlint", "version-pinned caller fixtures", "private and public caller permissions", "missing-evidence failure behavior"]}],
+  "evidence": {"status": "not-collected-by-repoctl", "note": "Whitespace checking does not validate workflow behavior."}
+}
